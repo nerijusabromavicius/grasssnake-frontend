@@ -9,16 +9,16 @@ class Search extends Component {
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        
     }
     
     handleChange(e) {
       this.setState({value: e.target.value});
     }
   
-  
     handleSubmit(e) {
-    let value = this.state.value;
-    let url = "http://78.63.82.104:3001/?sequence=" + value; // iskelt auksciau i const config = {}
+      let value = this.state.value;
+      let url = "http://78.63.82.104:3001/?sequence=" + value; // iskelt auksciau i const config = {}
         request
         .get(url)
         .then((res) => {
