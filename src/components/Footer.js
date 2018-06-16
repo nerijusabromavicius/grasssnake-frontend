@@ -5,21 +5,20 @@ const styles = {
   logo: {
     height: '80px'
   },
-  header: {
+  footer: {
     backgroundColor: '#222',
     height: '80px',
     padding: '6px',
-    color: 'white',
-    bottom: 0
+    bottom: 0,
+    position: 'absolute',
+    width: '100%'
   }
 }
 
 const Footer = (props) => {
   return (
-            // <div className="App">
-              <footer className="App-header" style={styles.header}>
-                <img src={logo} className="App-logo" alt="logo" style={styles.logo} />
-              </footer>
-            // </div>
+    <footer className="App-header" style={styles.footer}>
+      <img src={logo} className="App-logo" alt="logo" style={styles.logo} />
+    </footer>
   )};
 export default Footer;
