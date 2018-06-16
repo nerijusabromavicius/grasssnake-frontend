@@ -1,12 +1,15 @@
 import React from 'react';
+import Input from './Input';
 
-const FormView = ({ value, placeholder, type, onChange, onSubmit, ...props }) => {
+const placeholder = 'Enter sequence'
+
+const FormView = ({ value, onChange, onSubmit, ...props }) => {
     return (
         <form onSubmit={onSubmit}>
           <label>
-            <input type="text" value={value} onChange={onChange} placeholder={placeholder} {...props}/>
+            <Input type="text" value={value} onChange={onChange} placeholder={placeholder} {...props}/>
           </label>
-          <input type={type} value="Submit" />
+          <Input type="submit" value="Submit" />
         </form>
       );
 };

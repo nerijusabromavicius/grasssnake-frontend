@@ -45,8 +45,7 @@ class Search extends Component {
            value={this.state.value}
            onSubmit={this.handleSubmit}
            onChange={this.handleChange}
-           placeholder="zajebys"
-           type="submit" /> 
+           /> 
            {/* value bus paimamas is state, nereiks perduot*/ }
       </div>
       );
