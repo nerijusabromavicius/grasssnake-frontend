@@ -19,7 +19,7 @@ const styles = {
 const Footer = (props) => {
   return (
     <footer className="footer" style={styles.header}>
-      <span>2018</span>
+      <span>&copy;Žalče 2018</span>
     </footer>
   )};
 export default Footer;

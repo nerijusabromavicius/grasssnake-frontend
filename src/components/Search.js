@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import FormView from './FormView';
 import request from 'superagent';
-import Chart from './Chart';
 
 const config = {
   url: "http://78.63.82.104:3001/?sequence=",
@@ -11,44 +10,45 @@ const config = {
 class Search extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      value: '',
+      value: ''
     }
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
+
     this.setState({
-      value: e.target.value,
+      value: e.target.value
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const value = this.state.value;
+
     request
-    .get((config.url + value))
-    .then((res) => {
-        config.results.push({sequence: value, value: res.body.scores[value]});
-        console.log(config.results)
+      .get((config.url + value))
+      .then((res) => {
+        this.props.onGetResults({
+          value: value,
+          score: res.body.scores[value]
+        });
     })
     .catch((err) => {
-  // alert('error: check sequence format');
-      console.log(err);
-  })};
+  alert('error: check sequence format');
+  console.log(err);
+  });
+    
+  }
   
   render() {
     return (
       <div>
-          <FormView
-           value={this.state.value}
-           onSubmit={this.handleSubmit}
-           onChange={this.handleChange}
-           /> 
-           <Chart 
-          //  data={this.state.chartData} 
-           />
+        <FormView value={ this.state.value } onSubmit={ this.handleSubmit } onChange={ this.handleChange } /> 
       </div>
       );
     }

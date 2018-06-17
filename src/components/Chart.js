@@ -1,69 +1,19 @@
-import React, {Component} from 'react';
-import {Bar} from 'react-chartjs-2';
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
 
-class Chart extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            chartData:{
-                labels:['Boston', 'Crabby'],
-                datasets:[
-                    {
-                        label: ['On-target score'],
-                        data:[50000, 60000],
-                        backgroundColor: ['red', 'blue']
-                    }
-                ],
-                options: {
-                    responsive: true,
-                    legend: {
-                        position: 'bottom',
-                    },
-                    hover: {
-                        mode: 'label'
-                    },
-                    scales: {
-                        xAxes: [{
-                                display: true,
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: 'Month'
-                                }
-                            }],
-                        yAxes: [{
-                                display: true,
-                                ticks: {
-                                    beginAtZero: true,
-                                    steps: 10,
-                                    stepValue: 5,
-                                    max: 100
-                                }
-                            }]
-                    },
-                    title: {
-                        display: true,
-                        text: 'Chart.js Line Chart - Legend'
-                    }
-                }
-        }
-    }
-}
-
-    render(){
-        return(
-            <div className="chart">
-               <Bar 
-                data = {this.state.chartData}
+const Chart = ({ data }) => {
+    return (
+        <div className="chart">
+            <Bar 
+                data = { data }
                 options = {{
                     maintainAspectRatio: false,
-                    title: {
-
-                    }
+                    scales: { yAxes: [{ticks: {beginAtZero: true}}]},
+                    responsive: true,
                 }}
-               />
-            </div>   
-        );
-    }
+             />
+        </div>   
+    );
 }
 
 export default Chart;
