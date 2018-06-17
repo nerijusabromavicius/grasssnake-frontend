@@ -1,30 +1,64 @@
 import React, {Component} from 'react';
-import {/*Bar, Line,*/ Pie} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 
-class Chart3 extends Component{
+class Chart extends Component{
     constructor(props){
         super(props);
-        console.log(this.props);
         this.state = {
             chartData:{
-                labels:['On-target', 'Off-target'],
+                labels:['Boston', 'Crabby'],
                 datasets:[
                     {
-                        data:[0.5, 1- 0.5
-                        ] 
+                        label: ['On-target score'],
+                        data:[50000, 60000],
+                        backgroundColor: ['red', 'blue']
                     }
-                ]
-            }
+                ],
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'bottom',
+                    },
+                    hover: {
+                        mode: 'label'
+                    },
+                    scales: {
+                        xAxes: [{
+                                display: true,
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Month'
+                                }
+                            }],
+                        yAxes: [{
+                                display: true,
+                                ticks: {
+                                    beginAtZero: true,
+                                    steps: 10,
+                                    stepValue: 5,
+                                    max: 100
+                                }
+                            }]
+                    },
+                    title: {
+                        display: true,
+                        text: 'Chart.js Line Chart - Legend'
+                    }
+                }
         }
     }
+}
 
     render(){
         return(
             <div className="chart">
-               <Pie 
+               <Bar 
                 data = {this.state.chartData}
                 options = {{
-                    maintainAspectRatio: false
+                    maintainAspectRatio: false,
+                    title: {
+
+                    }
                 }}
                />
             </div>   
@@ -32,4 +66,4 @@ class Chart3 extends Component{
     }
 }
 
-export default Chart3;
+export default Chart;
