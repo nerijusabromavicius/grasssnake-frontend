@@ -7,3 +7,49 @@ body {
 .chart {
     height: 100%;
 }
+
+.search {
+    width: 50%;
+    position: relative;
+    margin: 10px auto;
+}
+
+.searchTerm {
+    float: left;
+    width: 90%;
+    border: 1px solid #003333b5;
+    padding: 5px;
+    height: 36px;
+    border-radius: 5px;
+    outline: none;
+    color: #003333b5;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.searchTerm:focus {
+    color: #003333b5;
+}
+
+.searchButton:hover {
+    background-color: #424747b5;
+}
+
+.searchTerm:hover {
+    color: #424747b5;
+    border: 3px solid #424747b5;
+}
+
+.searchButton {
+    position: absolute;
+    /* right: 50px; */
+    /* width: 5%; */
+    height: 36px;
+    border: 1px solid #003333b5;
+    background: #003333b5;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}

@@ -5,11 +5,11 @@ const placeholder = 'Enter sequence'
 
 const FormView = ({ value, onChange, onSubmit, ...props }) => {
     return (
-        <form onSubmit={ onSubmit }>
+        <form onSubmit={ onSubmit } className="search">
           <label>
-            <Input type="text" value={value} onChange={onChange} placeholder={placeholder} {...props}/>
+            <Input className="searchTerm" type="text" value={value} onChange={onChange} placeholder={placeholder} {...props}/>
           </label>
-            <Input type="submit" value="Submit" />
+            <Input className="searchButton" type="submit" value="Submit" />
         </form>
       );
 };
