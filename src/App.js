@@ -4,7 +4,7 @@ import Search from './components/Search';
 import Footer from './components/Footer';
 import Chart from './components/Chart';
 
-const appStyle = { // perkelt i CSS/SASS ir settint klase ant elemento
+const appStyle = {
   textAlign: 'center',
   top: '5px',
   height:'500px'
@@ -14,7 +14,7 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      labels: [],
+      resultValues: [],
       chartData: {
         label: '',
         datasets: []
@@ -24,18 +24,22 @@ export default class App extends Component {
 
   resultsCallback = (dataItem) => {
 
-    let prev = this.state.chartData;
-    let prevDataSets = prev.datasets;
-    // let prevLabels = this.state.labels;
+    let prevDataSets = this.state.chartData.datasets;
 
-    prevDataSets.push({label: dataItem.value, data: [dataItem.score], backgroundColor: '#'+Math.floor(Math.random()*16777215).toString(16)}) //https://www.paulirish.com/2009/random-hex-color-code-snippets/
-    // prevLabels.push(dataItem.value);
+    if (this.state.resultValues.indexOf(dataItem.value) > -1) {
+      return;
+    }
 
-    this.setState({ chartData: {
-      // labels: prevLabels,
-      datasets: prevDataSets
-    }})
-    console.log(this.state);
+    let prevResultValues = this.state.resultValues;
+    prevResultValues.push(dataItem.value);
+
+    prevDataSets.push({label: dataItem.value, data: [dataItem.score], backgroundColor: '#'+ Math.floor(Math.random() * 255 * 255 * 255).toString(16)})
+    this.setState({
+      resultValues: prevResultValues,
+      chartData: {
+        datasets: prevDataSets
+      }
+    })
   }
 
   render() {

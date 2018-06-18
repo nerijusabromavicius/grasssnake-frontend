@@ -8,6 +8,7 @@ const config = {
 }
 
 class Search extends Component {
+
   constructor(props) {
     super(props);
 
@@ -39,9 +40,8 @@ class Search extends Component {
         });
     })
     .catch((err) => {
-  alert('error: check sequence format');
-  console.log(err);
-  });
+      console.log(err);
+    });
     
   }
   
@@ -53,4 +53,5 @@ class Search extends Component {
       );
     }
   }
+
 export default Search;

@@ -6,7 +6,6 @@ const styles = {
   },
   header: {
     backgroundColor: '#222',
-    // height: '80px',
     padding: '6px',
     color: 'white',
     bottom: '0px',
@@ -19,7 +18,7 @@ const styles = {
 const Footer = (props) => {
   return (
     <footer className="footer" style={styles.header}>
-      <span>&copy;Žalče 2018</span>
+      <span>Žalče 2018</span>
     </footer>
   )};
 export default Footer;
