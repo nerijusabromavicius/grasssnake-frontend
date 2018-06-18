@@ -12,9 +12,14 @@ Build:
 npm run build
 ```
 
-Built with:
-Backend: Microsoft Azimuth
-Frontend: create-react-app
+#### Built with:  
+Backend: Microsoft Azimuth  
+Frontend: create-react-app  
 
+
+#### Testing:
+CCAGAAGTTTGAGCCACAAACCCATGGTCA  
+CAGCTGATCTCCAGATATGACCATGGGTTT  
+ACAGCTGATCTCCAGATATGACCATGGGTT  
 
 ***Žalče 2018***
