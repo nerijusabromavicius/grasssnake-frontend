@@ -1,21 +1,55 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import Search from './components/Search';
+import Footer from './components/Footer';
+import Chart from './components/Chart';
 
-class App extends Component {
+const appStyle = {
+  textAlign: 'center',
+  top: '5px',
+  height:'500px'
+};
+
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      resultValues: [],
+      chartData: {
+        label: '',
+        datasets: []
+      }
+    };
+  }
+
+  resultsCallback = (dataItem) => {
+
+    let prevDataSets = this.state.chartData.datasets;
+
+    if (this.state.resultValues.indexOf(dataItem.value) > -1) {
+      return;
+    }
+
+    let prevResultValues = this.state.resultValues;
+    prevResultValues.push(dataItem.value);
+
+    prevDataSets.push({label: dataItem.value, data: [dataItem.score], backgroundColor: '#'+ Math.floor(Math.random() * 255 * 255 * 255).toString(16)})
+    this.setState({
+      resultValues: prevResultValues,
+      chartData: {
+        datasets: prevDataSets
+      }
+    })
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <div style={ appStyle }>
+        <Header />
+        <Search onGetResults={ this.resultsCallback }/>
+        <Chart data={ this.state.chartData } onChange={ this.handleChange }/>
+        <Footer />
+      </div> 
     );
   }
 }
-
-export default App;
